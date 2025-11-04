@@ -107,11 +107,10 @@ const EXAMPLE_REPORT = `
 `;
 
 export const generateReport = async (deviceData: string, weeklyData: string, keywordData: string): Promise<string> => {
-    
-    // FIX: Per coding guidelines, the API key must be obtained exclusively from `process.env.API_KEY`.
+    // FIX: The API key must be obtained from `process.env.API_KEY` as per the coding guidelines. This also resolves the TypeScript error.
     const API_KEY = process.env.API_KEY;
     if (!API_KEY) {
-      throw new Error("API_KEY environment variable not set.");
+      throw new Error("API_KEY environment variable not set. Please ensure it is configured.");
     }
     const ai = new GoogleGenAI({ apiKey: API_KEY });
 
