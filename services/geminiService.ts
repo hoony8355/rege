@@ -112,7 +112,7 @@ export const generateReport = async (deviceData: string, weeklyData: string, key
     if (!API_KEY) {
       throw new Error("API_KEY environment variable not set. Please ensure it is configured.");
     }
-    const ai = new GoogleGenAI({ apiKey: API_KEY });
+    const ai = new GoogleGenAI({ apiKey: VITE_API_KEY });
 
     const prompt = `
 You are an expert digital marketing analyst with deep knowledge of Naver's advertising platform. Your task is to analyze three provided CSV files containing advertising data for a client and generate a comprehensive, insightful performance report in Korean, formatted as Markdown.
