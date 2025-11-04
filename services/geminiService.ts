@@ -108,10 +108,10 @@ const EXAMPLE_REPORT = `
 
 export const generateReport = async (deviceData: string, weeklyData: string, keywordData: string): Promise<string> => {
     
-    // FIX: Use process.env.API_KEY to access the API key as per guidelines. This resolves the TypeScript error with import.meta.env.
-    const API_KEY = process.env.API_KEY;
+    // FIX: Vite projects must use `import.meta.env.VITE_` to access environment variables on the client-side.
+    const API_KEY = import.meta.env.VITE_API_KEY;
     if (!API_KEY) {
-      throw new Error("API_KEY environment variable not set");
+      throw new Error("VITE_API_KEY environment variable not set. Please set it in your Vercel project settings.");
     }
     const ai = new GoogleGenAI({ apiKey: API_KEY });
 
