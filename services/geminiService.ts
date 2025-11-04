@@ -1,13 +1,6 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = process.env.API_KEY;
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
-
 const EXAMPLE_REPORT = `
 
 ## 1️⃣ 캠페인 유형별 성과 요약
@@ -116,6 +109,12 @@ const EXAMPLE_REPORT = `
 
 export const generateReport = async (deviceData: string, weeklyData: string, keywordData: string): Promise<string> => {
     
+    const API_KEY = process.env.API_KEY;
+    if (!API_KEY) {
+      throw new Error("API_KEY environment variable not set");
+    }
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+
     const prompt = `
 You are an expert digital marketing analyst with deep knowledge of Naver's advertising platform. Your task is to analyze three provided CSV files containing advertising data for a client and generate a comprehensive, insightful performance report in Korean, formatted as Markdown.
 
