@@ -64,13 +64,13 @@ const App: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                             <FileUpload
                                 id="device"
-                                label="PC/모바일 데이터"
+                                label="PC/모바일 데이터(기기/매체)"
                                 onFileSelect={handleFileChange}
                                 fileName={files.device?.name}
                             />
                             <FileUpload
                                 id="weekly"
-                                label="주간 데이터"
+                                label="주간 데이터(기간)"
                                 onFileSelect={handleFileChange}
                                 fileName={files.weekly?.name}
                             />
