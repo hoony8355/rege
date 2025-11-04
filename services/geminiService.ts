@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 
 const EXAMPLE_REPORT = `
@@ -109,6 +108,7 @@ const EXAMPLE_REPORT = `
 
 export const generateReport = async (deviceData: string, weeklyData: string, keywordData: string): Promise<string> => {
     
+    // FIX: Use process.env.API_KEY to access the API key as per guidelines. This resolves the TypeScript error with import.meta.env.
     const API_KEY = process.env.API_KEY;
     if (!API_KEY) {
       throw new Error("API_KEY environment variable not set");
