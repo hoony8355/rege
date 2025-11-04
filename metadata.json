@@ -1,0 +1,5 @@
+{
+  "name": "AI Advertising Report Generator",
+  "description": "Upload Naver advertising campaign data (weekly, device/channel, keyword) in CSV format to automatically generate an insightful performance report in Markdown format using AI.",
+  "requestFramePermissions": []
+}
