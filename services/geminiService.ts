@@ -107,12 +107,13 @@ const EXAMPLE_REPORT = `
 `;
 
 export const generateReport = async (deviceData: string, weeklyData: string, keywordData: string): Promise<string> => {
-    // FIX: The API key must be obtained from `process.env.API_KEY` as per the coding guidelines. This also resolves the TypeScript error.
-    const API_KEY = process.env.API_KEY;
-    if (!API_KEY) {
-      throw new Error("API_KEY environment variable not set. Please ensure it is configured.");
+    const apiKey = import.meta.env.VITE_API_KEY;
+
+    if (!apiKey) {
+        throw new Error("VITE_API_KEY environment variable not set. Please ensure it is configured in your Vercel project settings.");
     }
-    const ai = new GoogleGenAI({ apiKey: VITE_API_KEY });
+
+    const ai = new GoogleGenAI({ apiKey });
 
     const prompt = `
 You are an expert digital marketing analyst with deep knowledge of Naver's advertising platform. Your task is to analyze three provided CSV files containing advertising data for a client and generate a comprehensive, insightful performance report in Korean, formatted as Markdown.
